@@ -11,6 +11,13 @@ class MeetupsController < ApplicationController
     end
   end
 
+  def new
+    if current_user
+      @meetup = Meetup.new
+    else
+      redirect_to root_path
+    end
+  end
 
 
   private
