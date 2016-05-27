@@ -1,0 +1,11 @@
+<% @meetups.each do |meetup| %>
+  <p>
+    <strong>Name:</strong> <%= meetup.name %><br>
+    <strong>Location:</strong> <%= meetup.location %><br>
+    <strong>Address:</strong> <%= meetup.address %><br>
+    <strong>Meetup Date:</strong> <%= meetup.meetup_date %><br>
+    <strong>Time:</strong> <%= meetup.time %><br>
+    <strong>Organized by:</strong> <br>
+    <strong>Description:</strong> <%= meetup.description %>
+  </p>
+<% end %>
