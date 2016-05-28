@@ -6,3 +6,5 @@
     <strong>Time:</strong> <%= @meetup.time %><br>
     <strong>Organized by:</strong> <%= @organizer.name %> <br>
     <strong>Description:</strong> <%= @meetup.description %>
+    <%= button_to "Delete", @meetup, method: :delete %>
+    <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>

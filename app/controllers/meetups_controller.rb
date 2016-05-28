@@ -48,6 +48,13 @@ class MeetupsController < ApplicationController
     end
   end
 
+  def destroy
+    meetup = set_meetup
+    meetup.destroy
+    flash[:notice] = "Meetup deleted"
+    redirect_to root_path
+  end
+
   private
 
   def meetup_params
