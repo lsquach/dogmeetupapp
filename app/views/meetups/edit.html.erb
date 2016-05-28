@@ -1,0 +1,9 @@
+<%= form_for @meetup do |f| %>
+  Meetup Name: <%= f.text_field :name %><br>
+  Location: <%= f.text_field :location %><br>
+  Address: <%= f.text_area :address %><br>
+  Meetup Date: <%= f.date_field :meetup_date %><br>
+  Time: <%= f.time_field :time %><br>
+  Description: <%= f.text_area :description %><br>
+  <%= f.submit "Save" %>
+<% end %>

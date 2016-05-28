@@ -5,8 +5,8 @@ class MeetupsController < ApplicationController
 
   def show
     if current_user
-      @meetup = Meetup.find_by_id(params[:id])
-      user_id = @meetup.user_id
+      @meetup_id = set_meetup
+      user_id = @meetup_id.user_id
       @organizer = User.find_by_id(user_id)
     else
       redirect_to root_path
@@ -33,6 +33,20 @@ class MeetupsController < ApplicationController
     end
   end
 
+  def edit
+    set_meetup
+  end
+
+  def update
+    meetup = set_meetup
+    if meetup.update_attributes(meetup_params)
+      redirect_to meetup_path(meetup)
+      flash[:notice] = "Meetup updated"
+    else
+      flash[:error] = meetup.errors.full_messages.join(", ")
+      redirect_to edit_meetup(meetup)
+    end
+  end
 
   private
 
@@ -41,8 +55,10 @@ class MeetupsController < ApplicationController
   end
 
   def set_user
-    user_id = params[:id]
-    @user = User.find_by_id(user_id)
+    @user = User.find_by_id(params[:id])
   end
 
+  def set_meetup
+    @meetup = Meetup.find_by_id(params[:id])
+  end
 end
