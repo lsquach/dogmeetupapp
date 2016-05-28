@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   resources :users, except: [:new] do
-    resources :meetups, except: [:show, :index, :create]
+    resources :meetups, only: [:new]
     resources :dogs, except: [:show]
   end
 
-  resources :meetups, only: [:show, :index, :create]
+  resources :meetups, except: [:new]
   resources :dogs, only: [:show]
 
 end
