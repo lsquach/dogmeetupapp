@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def show
     if current_user
       set_user
+      @meetup = Meetup.find_by_id(params[:id])
     else
       redirect_to root_path
     end
