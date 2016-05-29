@@ -1,0 +1,10 @@
+<h1>User Profile</h1>
+<h3>Name: <%= @user.name %></h3>
+
+  <div>
+    <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: 'btn btn-warning' %>
+  </div>
+
+<h2>Organized Meetups</h2>
+
+<%= button_to "Add Meetup", new_user_meetup_path(@meetup), method: 'get', class: 'btn btn-warning' %>
