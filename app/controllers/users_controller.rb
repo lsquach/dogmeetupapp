@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     if current_user
       set_user
       @meetup = Meetup.find_by_id(params[:id])
+      @meetups = @user.meetups
     else
       redirect_to root_path
     end

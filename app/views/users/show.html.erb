@@ -7,4 +7,9 @@
 
 <h2>Organized Meetups</h2>
 
-<%= button_to "Add Meetup", new_user_meetup_path(@meetup), method: 'get', class: 'btn btn-warning' %>
+<% @meetups.each do |meetup| %>
+    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date}", meetup_path(meetup) %></h2>
+      <%= link_to "", edit_meetup_path(meetup), class: 'glyphicon glyphicon-pencil' %>
+<% end %>
+
+<%= button_to "Add Meetup", new_user_meetup_path(@user, @meetup), method: 'get', class: 'btn btn-warning' %>
