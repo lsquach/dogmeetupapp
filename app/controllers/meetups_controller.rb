@@ -34,7 +34,7 @@ class MeetupsController < ApplicationController
   end
 
   def edit
-    set_meetup
+      set_meetup
   end
 
   def update
