@@ -5,8 +5,8 @@ class MeetupsController < ApplicationController
 
   def show
     if current_user
-      @meetup_id = set_meetup
-      user_id = @meetup_id.user_id
+      meetup_id = set_meetup
+      user_id = meetup_id.user_id
       @organizer = User.find_by_id(user_id)
     else
       redirect_to root_path
