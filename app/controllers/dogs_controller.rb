@@ -29,7 +29,7 @@ class DogsController < ApplicationController
   end
 
   def edit
-      set_dog
+    set_dog
   end
 
   def update
