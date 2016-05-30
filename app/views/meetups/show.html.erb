@@ -8,3 +8,8 @@
     <strong>Description:</strong> <%= @meetup.description %>
     <%= button_to "Delete", @meetup, method: :delete %>
     <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
+
+    <% @dogs.each do |dog| %>
+      <p>
+        <strong>name:</strong> <%= dog.name %><br>
+    <% end %>

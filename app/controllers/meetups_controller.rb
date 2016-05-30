@@ -8,6 +8,10 @@ class MeetupsController < ApplicationController
       meetup_id = set_meetup
       user_id = meetup_id.user_id
       @organizer = User.find_by_id(user_id)
+
+      user_dogs = User.find_by_id(current_user)
+      @dogs = user_dogs.dogs
+
     else
       redirect_to root_path
     end
