@@ -1,6 +1,6 @@
 <% @meetups.each do |meetup| %>
   <p>
-    <strong>Name:</strong> <%= meetup.name %><br>
+    <strong>Name:</strong> <%= link_to meetup.name, meetup_path(meetup) %><br>
     <strong>Location:</strong> <%= meetup.location %><br>
     <strong>Meetup Date:</strong> <%= meetup.meetup_date %><br>
     <strong>Time:</strong> <%= meetup.time %><br>

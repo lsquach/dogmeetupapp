@@ -16,8 +16,7 @@
 
 <h2>Dogs</h2>
 <% @dogs.each do |dog| %>
-<p><%= dog.name %></p>
-    <h2><%#= link_to "#{dog.name}", dog_path(dog) %></h2>
-      <%#= link_to "", edit_meetup_path(meetup), class: 'glyphicon glyphicon-pencil' %>
+    <h2><%= link_to dog.name, dog_path(dog) %></h2>
+      <%= link_to "", edit_dog_path(dog), class: 'glyphicon glyphicon-pencil' %>
 <% end %>
 <%= button_to "Add Dog", new_user_dog_path(@user, @dog), method: 'get', class: 'btn btn-warning' %>
