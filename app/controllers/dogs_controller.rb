@@ -1,9 +1,11 @@
 class DogsController < ApplicationController
 
   def show
-  end
-
-  def edit
+    if current_user
+      set_dog
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -27,9 +29,18 @@ class DogsController < ApplicationController
   end
 
   def edit
+    set_dog
   end
 
   def update
+    dog = set_dog
+    if dog.update_attributes(dog_params)
+      redirect_to dog_path(dog)
+      flash[:notice] = "Dog updated"
+    else
+      flash[:error] = dog.errors.full_messages.join(", ")
+      redirect_to edit_dog(dog)
+    end
   end
 
   private
@@ -40,6 +51,10 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :image, :age, :size, :breed, :bio, :user_id)
+  end
+
+  def set_dog
+    @dog = Dog.find_by_id(params[:id])
   end
 
 end

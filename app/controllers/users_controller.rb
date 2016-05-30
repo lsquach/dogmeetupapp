@@ -25,6 +25,8 @@ class UsersController < ApplicationController
       set_user
       @meetup = Meetup.find_by_id(params[:id])
       @meetups = @user.meetups
+      @dog = Dog.find_by_id(params[:id])
+      @dogs = @user.dogs
     else
       redirect_to root_path
     end
