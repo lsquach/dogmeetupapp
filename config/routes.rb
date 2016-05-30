@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new, :index] do
     resources :meetups, only: [:new]
-    resources :dogs, except: [:show]
+    resources :dogs, only: [:new]
   end
 
   resources :meetups, except: [:new]
-  resources :dogs, only: [:show]
+  resources :dogs, except: [:new]
 
 end

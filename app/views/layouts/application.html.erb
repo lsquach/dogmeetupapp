@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to "Home", root_path %>
+    <div class="pull-left">
+    </div>
+    </div>
+
   <div class="col-sm-6">
   <div class="pull-right">
     <% if current_user %>
@@ -15,6 +22,7 @@
       <%= link_to "Sign Up", signup_path, class:'font_style' %> | <%= link_to "Log In", login_path, class:'font_style' %></li>
     <% end %>
   </div>
+</div>
 </div>
 <br>
 

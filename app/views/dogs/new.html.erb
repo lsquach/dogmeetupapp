@@ -1,0 +1,9 @@
+<%= form_for @dog do |f| %>
+  Name: <%= f.text_field :name %><br>
+  Picture: <%= f.text_field :image %><br>
+  Age: <%= f.number_field :age %><br>
+  Size: <%= f.text_field :size %><br>
+  Breed: <%= f.text_field :breed %><br>
+  About Me: <%= f.text_area :bio %><br>
+  <%= f.submit "Save " %>
+<% end %>
