@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
-  # get "/meetups/:meetup_id/dogs", to: "dog_meetups#index", as: "meetup_dogs"
-
+  put "/meetups/:id", to: "meetups#add_dog"
 
   resources :users, except: [:new, :index] do
     resources :meetups, only: [:new]

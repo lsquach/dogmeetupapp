@@ -10,11 +10,21 @@
     <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
 
 <h2>Add Dog</h2>
-    <% @dogs.each do |dog| %>
-      <p>
-        <strong>name:</strong> <%= dog.name %><br>
-    <% end %>
-    
+<%= form_tag(meetup_path(@meetup), method: "put") do %>
+
+    <% @dogs.each do |i| %>
+
+            <%= check_box_tag 'dog_ids[]', i.id %>
+            <span><%= label_tag(i.id, i.name.capitalize) %></span>
+            <span><%= label_tag(i.id) %></span>
+
+  </div>
+<% end %>
+<%= submit_tag "Add" %>
+<% end %>
+
+
+
 <h2>Dogs belongs to meetup</h2>
     <% @meetup_dogs.each do |d| %>
       <p>
