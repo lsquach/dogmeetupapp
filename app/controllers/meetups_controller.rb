@@ -1,16 +1,27 @@
 class MeetupsController < ApplicationController
   def index
     @meetups = Meetup.all
+
   end
 
   def show
     if current_user
-      meetup_id = set_meetup
-      user_id = meetup_id.user_id
+      @meetup_id = set_meetup
+      user_id = @meetup_id.user_id
       @organizer = User.find_by_id(user_id)
+      user_dogs = User.find_by_id(current_user)
+      @dogs = user_dogs.dogs
+      @meetup_dogs = @meetup_id.dogs
     else
       redirect_to root_path
     end
+  end
+
+  def add_dog
+    @meetup_id = set_meetup
+    @dogs = Dog.find(params[:dog_ids])
+    @meetup_id.dogs.push(@dogs)
+    redirect_to meetup_path(@meetup_id)
   end
 
   def new
@@ -58,7 +69,7 @@ class MeetupsController < ApplicationController
   private
 
   def meetup_params
-    params.require(:meetup).permit(:description, :location, :address, :name, :time, :meetup_date, :user_id)
+    params.require(:meetup).permit(:description, :location, :address, :name, :time, :meetup_date, :user_id, dog_ids:[])
   end
 
   def set_user

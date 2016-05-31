@@ -1,4 +1,5 @@
 class Meetup < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :dogs
+  has_many :dog_meetups
+  has_many :dogs, through: :dog_meetups
 end
