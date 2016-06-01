@@ -5,3 +5,7 @@
     <strong>Size:</strong> <%= @dog.size %><br>
     <strong>Breed:</strong> <%= @dog.breed %> <br>
     <strong>Bio:</strong> <%= @dog.bio %><br>
+
+    <% @dog_meetups.each do |meetup| %>
+        <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h2>
+    <% end %>

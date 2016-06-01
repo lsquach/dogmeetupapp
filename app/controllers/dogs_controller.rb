@@ -2,7 +2,8 @@ class DogsController < ApplicationController
 
   def show
     if current_user
-      set_dog
+      dog_id = set_dog
+      @dog_meetups = dog_id.meetups  
     else
       redirect_to root_path
     end
