@@ -1,6 +1,8 @@
 <%= form_for @dog do |f| %>
   Name: <%= f.text_field :name %><br>
-  Picture: <%= f.text_field :image %><br>
+  <input type="hidden" role="uploadcare-uploader" name="dog[image]"
+       data-crop="disabled"
+       data-images-only="true" /><br>
   Age: <%= f.number_field :age %><br>
   Size: <%= f.text_field :size %><br>
   Breed: <%= f.text_field :breed %><br>

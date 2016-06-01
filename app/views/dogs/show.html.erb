@@ -1,6 +1,10 @@
 
     <strong>Name:</strong> <%= @dog.name %><br>
-    <strong>Image:</strong> <%= @dog.image %><br>
+    <% if @dog.image.blank? %>
+    <%= image_tag "dog_avatar.jpg", :width => 250 %>
+  <% else %>
+    <%= image_tag @dog.image, :width => 250, :class => "img-circle" %>
+  <% end %>
     <strong>Age:</strong> <%= @dog.age %><br>
     <strong>Size:</strong> <%= @dog.size %><br>
     <strong>Breed:</strong> <%= @dog.breed %> <br>
