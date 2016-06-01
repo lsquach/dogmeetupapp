@@ -1,5 +1,4 @@
 <% @meetups.each do |meetup| %>
-  <p>
     <% if current_user %>
     <strong>Name:</strong> <%= link_to meetup.name, meetup_path(meetup) %><br>
     <% else %>
@@ -8,7 +7,24 @@
     <strong>Location:</strong> <%= meetup.location %><br>
     <strong>Meetup Date:</strong> <%= meetup.meetup_date.strftime("%B %e, %Y") %><br>
     <strong>Time:</strong> <%= meetup.time.strftime('%I:%M %p') %><br>
-    <strong>ID:</strong> <%= meetup.id %><br>
-  </p>
+    <% if current_user %>
+    <% meetup.dogs.each do |d| %>
+    <% if d.image.blank? %>
+      <%= link_to image_tag("dog_avatar.jpg", :width => 250), dog_path(d) %>
+    <% else %>
+      <%= link_to image_tag(d.image, :width => 250, :class => 'img-circle'), dog_path(d) %>
+    <% end %>
+    <br>
+    <% end %>
+    <% else %>
+    <% meetup.dogs.each do |d| %>
+    <% if d.image.blank? %>
+      <%= image_tag("dog_avatar.jpg", :width => 250) %>
+    <% else %>
+      <%= image_tag(d.image, :width => 250, :class => 'img-circle') %>
+    <% end %>
+    <br>
+    <% end %>
+    <% end %>
 
 <% end %>
