@@ -1,6 +1,6 @@
 class MeetupsController < ApplicationController
   def index
-    @meetups = Meetup.all.order('meetup_date ASC')
+    @meetups = Meetup.all.where("meetup_date >= ?", Date.today).order('meetup_date ASC')
   end
 
   def show

@@ -3,7 +3,7 @@ class DogsController < ApplicationController
   def show
     if current_user
       dog_id = set_dog
-      @dog_meetups = dog_id.meetups
+      @dog_meetups = dog_id.meetups.where("meetup_date >= ?", Date.today).order('meetup_date ASC')
     else
       redirect_to root_path
     end
