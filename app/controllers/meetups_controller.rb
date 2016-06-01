@@ -19,7 +19,7 @@ class MeetupsController < ApplicationController
 
   def add_dog
     meetup_id = set_meetup
-    owner_dogs = Dog.find_by_id(params[:dog_ids])
+    owner_dogs = Dog.find(params[:dog_ids])
     meetup_id.dogs.push(owner_dogs)
     redirect_to meetup_path(meetup_id)
   end
@@ -68,8 +68,10 @@ class MeetupsController < ApplicationController
   end
 
   def destroy
-    meetup = set_meetup
-    meetup.destroy
+    meetup_id = set_meetup
+    meetup_dogs = meetup_id.dogs
+    meetup_dogs.destroy_all
+    meetup_id.destroy
     flash[:notice] = "Meetup deleted"
     redirect_to root_path
   end
@@ -77,7 +79,7 @@ class MeetupsController < ApplicationController
   private
 
   def meetup_params
-    params.require(:meetup).permit(:description, :location, :address, :name, :time, :meetup_date, :user_id, dog_ids:[])
+    params.require(:meetup).permit(:description, :location, :address, :name, :time, :meetup_date, :user_id)
   end
 
   def set_user
