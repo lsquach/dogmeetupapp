@@ -24,8 +24,8 @@ class DogsController < ApplicationController
       redirect_to user_path(current_user)
       flash[:notice] = "Dog saved"
     else
-      flash[:error] = dog.errors.full_messages.join(", ")
-      redirect_to to new_user_dog_path
+      flash[:error] = @dog.errors.full_messages.join(", ")
+      redirect_to new_user_dog_path(current_user)
     end
   end
 
@@ -40,7 +40,7 @@ class DogsController < ApplicationController
       flash[:notice] = "Dog updated"
     else
       flash[:error] = dog.errors.full_messages.join(", ")
-      redirect_to edit_dog(dog)
+      redirect_to edit_dog_path(dog)
     end
   end
 

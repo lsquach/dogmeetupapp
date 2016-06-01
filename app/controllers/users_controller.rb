@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       login(user)
       redirect_to root_path
     else
-      flash[:error] = user.errors.full_messges.join(", ")
+      flash[:error] = user.errors.full_messages.join(", ")
       redirect_to signup_path
     end
   end
