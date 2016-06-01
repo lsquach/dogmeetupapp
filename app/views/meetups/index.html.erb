@@ -1,9 +1,13 @@
 <% @meetups.each do |meetup| %>
   <p>
+    <% if current_user %>
     <strong>Name:</strong> <%= link_to meetup.name, meetup_path(meetup) %><br>
+    <% else %>
+    <strong>Name:</strong> <%= meetup.name %><br>
+    <% end %>
     <strong>Location:</strong> <%= meetup.location %><br>
-    <strong>Meetup Date:</strong> <%= meetup.meetup_date %><br>
-    <strong>Time:</strong> <%= meetup.time %><br>
+    <strong>Meetup Date:</strong> <%= meetup.meetup_date.strftime("%B %e, %Y") %><br>
+    <strong>Time:</strong> <%= meetup.time.strftime('%I:%M %p') %><br>
     <strong>ID:</strong> <%= meetup.id %><br>
   </p>
 

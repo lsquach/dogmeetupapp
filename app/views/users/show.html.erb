@@ -8,7 +8,7 @@
 <h2>Organized Meetups</h2>
 
 <% @meetups.each do |meetup| %>
-    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date}", meetup_path(meetup) %></h2>
+    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h2>
       <%= link_to "", edit_meetup_path(meetup), class: 'glyphicon glyphicon-pencil' %>
 <% end %>
 
@@ -17,6 +17,6 @@
 <h2>Dogs</h2>
 <% @dogs.each do |dog| %>
     <h2><%= link_to dog.name, dog_path(dog) %></h2>
-      <%= link_to "", edit_dog_path(dog), class: 'glyphicon glyphicon-pencil' %>
+      <%= button_to "Edit Dog", edit_dog_path(dog), method: 'get', class: 'btn btn-warning' %>
 <% end %>
 <%= button_to "Add Dog", new_user_dog_path(@user, @dog), method: 'get', class: 'btn btn-warning' %>

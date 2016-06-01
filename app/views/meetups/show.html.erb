@@ -1,30 +1,36 @@
-
-    <strong>Name:</strong> <%= @meetup.name %><br>
-    <strong>Location:</strong> <%= @meetup.location %><br>
-    <strong>Address:</strong> <%= @meetup.address %><br>
-    <strong>Meetup Date:</strong> <%= @meetup.meetup_date %><br>
-    <strong>Time:</strong> <%= @meetup.time %><br>
-    <strong>Organized by:</strong> <%= @organizer.name %> <br>
-    <strong>Description:</strong> <%= @meetup.description %>
-    <%= button_to "Delete", @meetup, method: :delete %>
-    <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
+<strong>Name:</strong> <%= @meetup.name %><br>
+<strong>Location:</strong> <%= @meetup.location %><br>
+<strong>Address:</strong> <%= @meetup.address %><br>
+<strong>Meetup Date:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %><br>
+<strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %><br>
+<strong>Organized by:</strong> <%= @organizer.name %> <br>
+<strong>Description:</strong> <%= @meetup.description %>
+<% if current_user && current_user == @organizer %>
+  <%= button_to "Delete", @meetup, method: :delete %>
+  <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
+<% end %>
 
 <h2>Dogs belongs to meetup</h2>
-    <% @meetup_dogs.each do |d| %>
-      <p>
-        <strong>name:</strong> <%= d.name %>
-        <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
-
+  <% @meetup_dogs.each do |d| %>
+    <strong>name:</strong> <%= link_to d.name, dog_path(d) %><br>
+    <% if d.image.blank? %>
+      <%= link_to image_tag("dog_avatar.jpg", :width => 250), dog_path(d) %>
+    <% else %>
+      <%= link_to image_tag(d.image, :width => 250, :class => 'img-circle'), dog_path(d) %>
     <% end %>
-
-    <h2>Add Dog</h2>
-    <%= form_tag(meetup_path(@meetup), method: "put") do %>
-
-        <% @dogs.each do |i| %>
-
-                <%= check_box_tag 'dog_ids[]', i.id %>
-                <span><%= label_tag(i.id, i.name.capitalize) %></span>
-      </div>
+    <br>
+    <% if current_user.dogs.include?(d)  %>
+      <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
     <% end %>
+  <% end %>
+
+<h2>Add Dog</h2>
+  <%= form_tag(meetup_path(@meetup), method: "put") do %>
+    <% @dogs.each do |i| %>
+        <% if @meetup_dogs.exclude?(i)  %>
+          <%= check_box_tag 'dog_ids[]', i.id %>
+          <span><%= label_tag(i.id, i.name.capitalize) %></span>
+        <% end %>
+      <% end %>
     <%= submit_tag "Add" %>
-    <% end %>
+  <% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :set_user, except: [:new, :create]
+  before_filter :set_user, except: [:new, :create, :show]
   before_filter :logged_in?, except: [:show, :new, :create]
   def new
     if current_user
@@ -21,14 +21,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
+    if current_user && set_user == current_user
       set_user
       @meetup = Meetup.find_by_id(params[:id])
       @meetups = @user.meetups
       @dog = Dog.find_by_id(params[:id])
       @dogs = @user.dogs
     else
-      redirect_to root_path
+      redirect_to user_path(current_user)
     end
   end
 

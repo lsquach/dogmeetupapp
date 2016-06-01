@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :meetups, except: [:new,:update]
   resources :dogs, except: [:new]
+  patch "/meetups/:id", to: "meetups#update"
   patch "/meetups/:meetup_id/dog/:id", to: "meetups#remove_dog"
 
 end

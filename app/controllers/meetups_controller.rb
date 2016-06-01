@@ -3,6 +3,7 @@ class MeetupsController < ApplicationController
     @meetups = Meetup.all
     #for each meetup, need to get the meetup id
     #show dogs for each meetup
+    @meetups = Meetup.all.order('meetup_date ASC')
   end
 
   def show
