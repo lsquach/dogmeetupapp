@@ -1,6 +1,6 @@
 class MeetupsController < ApplicationController
   def index
-    @meetups = Meetup.all
+    @meetups = Meetup.all.order('meetup_date ASC')
 
   end
 
