@@ -1,7 +1,8 @@
 class MeetupsController < ApplicationController
   def index
     @meetups = Meetup.all
-
+    #for each meetup, need to get the meetup id
+    #show dogs for each meetup
   end
 
   def show
