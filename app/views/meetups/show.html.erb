@@ -21,8 +21,9 @@
       <% else %>
       <%= link_to image_tag(d.image, :width => 250, :class => 'img-circle'), dog_path(d) %>
       <% end %>
-
+      <% if @meetup_dogs == current_user.dogs  %>
         <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
+        <% end %>
     <% end %>
 
     <h2>Add Dog</h2>
