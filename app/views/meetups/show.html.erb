@@ -28,5 +28,7 @@
 <h2>Dogs belongs to meetup</h2>
     <% @meetup_dogs.each do |d| %>
       <p>
-        <strong>name:</strong> <%= d.name %><br>
+        <strong>name:</strong> <%= d.name %>
+        <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
+
     <% end %>

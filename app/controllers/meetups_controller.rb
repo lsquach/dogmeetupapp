@@ -18,10 +18,18 @@ class MeetupsController < ApplicationController
   end
 
   def add_dog
-    @meetup_id = set_meetup
-    @dogs = Dog.find(params[:dog_ids])
-    @meetup_id.dogs.push(@dogs)
-    redirect_to meetup_path(@meetup_id)
+    meetup_id = set_meetup
+    owner_dogs = Dog.find_by_id(params[:dog_ids])
+    meetup_id.dogs.push(owner_dogs)
+    redirect_to meetup_path(meetup_id)
+  end
+
+  def remove_dog
+    dog_id = Dog.find_by_id(params[:id])
+    meetup = Meetup.find_by_id(params[:meetup_id])
+    @owner_dogs = meetup.dogs
+    @owner_dogs.delete(dog_id)
+    redirect_to meetup_path(meetup)
   end
 
   def new
