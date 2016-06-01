@@ -14,7 +14,14 @@
 <h2>Dogs belongs to meetup</h2>
     <% @meetup_dogs.each do |d| %>
       <p>
-        <strong>name:</strong> <%= link_to d.name, dog_path(d) %>
+        <strong>name:</strong> <%= link_to d.name, dog_path(d) %><br>
+
+        <% if d.image.blank? %>
+        <%= link_to image_tag("dog_avatar.jpg", :width => 250), dog_path(d) %>
+      <% else %>
+      <%= link_to image_tag(d.image, :width => 250, :class => 'img-circle'), dog_path(d) %>
+      <% end %>
+
         <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
     <% end %>
 
