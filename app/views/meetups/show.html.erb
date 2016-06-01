@@ -6,15 +6,16 @@
     <strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %><br>
     <strong>Organized by:</strong> <%= @organizer.name %> <br>
     <strong>Description:</strong> <%= @meetup.description %>
+    <% if current_user && current_user == @organizer %>
     <%= button_to "Delete", @meetup, method: :delete %>
     <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
+    <% end %>
 
 <h2>Dogs belongs to meetup</h2>
     <% @meetup_dogs.each do |d| %>
       <p>
-        <strong>name:</strong> <%= d.name %>
+        <strong>name:</strong> <%= link_to d.name, dog_path(d) %>
         <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
-
     <% end %>
 
     <h2>Add Dog</h2>
