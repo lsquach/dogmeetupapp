@@ -3,7 +3,7 @@ class DogsController < ApplicationController
   def show
     if current_user
       dog_id = set_dog
-      @dog_meetups = dog_id.meetups  
+      @dog_meetups = dog_id.meetups
     else
       redirect_to root_path
     end
@@ -42,6 +42,14 @@ class DogsController < ApplicationController
       flash[:error] = dog.errors.full_messages.join(", ")
       redirect_to edit_dog(dog)
     end
+  end
+
+  def destroy
+    @dog = set_dog
+    @dog.meetups.destroy_all
+    @dog.destroy
+    flash[:notice] = "Dog deleted"
+    redirect_to user_path(current_user)
   end
 
   private
