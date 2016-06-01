@@ -46,8 +46,8 @@ class MeetupsController < ApplicationController
       redirect_to @meetup
       flash[:notice] = "Meetup saved"
     else
-      flash[:error] = meetup.errors.full_messages.join(", ")
-      redirect_to new_user_meetup_path
+      flash[:error] = @meetup.errors.full_messages.join(", ")
+      redirect_to new_user_meetup_path(current_user)
     end
   end
 
@@ -62,7 +62,7 @@ class MeetupsController < ApplicationController
       flash[:notice] = "Meetup updated"
     else
       flash[:error] = meetup.errors.full_messages.join(", ")
-      redirect_to edit_meetup(meetup)
+      redirect_to edit_meetup_path(meetup)
     end
   end
 
