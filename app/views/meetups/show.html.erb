@@ -2,8 +2,8 @@
     <strong>Name:</strong> <%= @meetup.name %><br>
     <strong>Location:</strong> <%= @meetup.location %><br>
     <strong>Address:</strong> <%= @meetup.address %><br>
-    <strong>Meetup Date:</strong> <%= @meetup.meetup_date %><br>
-    <strong>Time:</strong> <%= @meetup.time %><br>
+    <strong>Meetup Date:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %><br>
+    <strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %><br>
     <strong>Organized by:</strong> <%= @organizer.name %> <br>
     <strong>Description:</strong> <%= @meetup.description %>
     <%= button_to "Delete", @meetup, method: :delete %>

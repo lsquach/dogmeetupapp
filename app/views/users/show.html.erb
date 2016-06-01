@@ -8,7 +8,7 @@
 <h2>Organized Meetups</h2>
 
 <% @meetups.each do |meetup| %>
-    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date}", meetup_path(meetup) %></h2>
+    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h2>
       <%= link_to "", edit_meetup_path(meetup), class: 'glyphicon glyphicon-pencil' %>
 <% end %>
 
