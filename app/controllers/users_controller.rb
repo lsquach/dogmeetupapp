@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if current_user && set_user == current_user
       set_user
       @meetup = Meetup.find_by_id(params[:id])
-      @meetups = @user.meetups
+      @meetups = @user.meetups.order('meetup_date DESC')
       @dog = Dog.find_by_id(params[:id])
       @dogs = @user.dogs
     else
