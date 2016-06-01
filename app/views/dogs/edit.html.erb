@@ -9,4 +9,6 @@
   Breed: <%= f.text_field :breed %><br>
   About Me: <%= f.text_area :bio %><br>
   <%= f.submit "Save " %>
+  <br>
+  <%= button_to "Delete", @dog, method: :delete %>
 <% end %>
