@@ -5,7 +5,7 @@ class Meetup < ActiveRecord::Base
 
   validates :description, presence: true, length: {
     minimum: 1,
-    maximum: 255
+    maximum: 1000
   }
   validates :location, presence: true, length: {
     minimum: 1,

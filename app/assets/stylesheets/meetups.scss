@@ -27,3 +27,30 @@
 .dog_info {
   display: inline-block;
 }
+
+.meetup_inner {
+  margin: 0 auto;
+  width: 300px;
+}
+ul {
+  list-style-type: none;
+}
+.dog_add {
+  text-align: center;
+}
+.dog_outer {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+}
+.dogs_joined {
+  text-align: center;
+  display: inline-block;
+  width: 25%
+}
+.dogs_joined_outer {
+  text-align: center
+}
+.meetup_show {
+  margin-bottom: 5%
+}
