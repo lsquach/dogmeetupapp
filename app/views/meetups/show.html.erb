@@ -1,58 +1,74 @@
-<div class="container">
+<div class="container meetup_show">
   <div class="col-md-8 col-md-offset-2">
     <div class="meetup_details">
- <center><h1><%= @meetup.name %></h1></center>
-   <div class="meetup_inner">
- <ul>
-  <li><strong>Where:</strong> <%= @meetup.location %></li>
-  <li><strong>Address:</strong> <%= @meetup.address %></li>
-  <li><strong>When:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %></li>
-  <li><strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %></li>
-  <li><strong>Organized by:</strong> <%= @organizer.name %></li>
-</ul>
-</div>
-<p><%= @meetup.description %></p>
-<% if current_user && current_user == @organizer %>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="pull-left">
-    <%= link_to "", edit_meetup_path(@meetup), method: 'get', class: 'fa fa-pencil fa-2x' %>
-  </div>
-</div>
-<div class="col-sm-6">
-<div class="pull-left">
-  <%= link_to "", @meetup, method: :delete, :class => 'fa fa-trash fa-2x' %>
-  </div>
-</div>
-</div>
-<% end %>
-</div>
-<div class="dog_details">
-<center><h2>Come play with us!</h2></center>
-  <% @meetup_dogs.each do |d| %>
-    <strong>name:</strong> <%= link_to d.name, dog_path(d) %><br>
-    <% if d.image.blank? %>
-      <%= link_to image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle'), dog_path(d) %>
-    <% else %>
-      <%= link_to image_tag(d.image, :width => 150, :class => 'img-circle'), dog_path(d) %>
+      <center><h1><%= @meetup.name %></h1></center>
+      <div class="meetup_inner">
+        <ul>
+          <li><strong>Where:</strong> <%= @meetup.location %></li>
+          <li><strong>Address:</strong> <%= @meetup.address %></li>
+          <li><strong>When:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %></li>
+          <li><strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %></li>
+          <li><strong>Organized by:</strong> <%= @organizer.name %></li>
+        </ul>
+      </div>
+      <div class="meetup_description">
+        <div>
+          <p><%= @meetup.description %></p>
+          <% if current_user && current_user == @organizer %>
+          <div class="row">
+            <div><%= button_to "Cancel", @meetup, method: :delete, :class => 'btn btn-danger pull-right' %></div>
+            <div><%= button_to "Update", edit_meetup_path(@meetup), method: 'get', class: 'btn btn-primary pull-right' %></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <% end %>
-    <br>
-    <% if current_user.dogs.include?(d)  %>
-      <%= button_to "Delete", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch %>
-    <% end %>
-  <% end %>
-
-  <%= form_tag(meetup_path(@meetup), method: "put") do %>
-    <% @dogs.each do |i| %>
+    <div class="dog_details">
+      <center><h2>Come play with us!</h2></center>
+      <div class="dog_add">
+        <%= form_tag(meetup_path(@meetup), method: "put") do %>
+        <% @dogs.each do |i| %>
         <% if @meetup_dogs.exclude?(i)  %>
-          <%= check_box_tag 'dog_ids[]', i.id %>
-          <span><%= label_tag(i.id, i.name.capitalize) %></span>
+        <div class="dog_outer">
+          <% if i.image.blank? %>
+          <div><%= image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle') %></div>
+          <% else %>
+          <div><%= image_tag(i.image, :width => 150, :class => 'img-circle') %></div>
+          <% end %>
+          <div><%= label_tag(i.id, i.name.capitalize) %></div>
+          <div><%= check_box_tag 'dog_ids[]', i.id %></div>
+        </div>
         <% end %>
-      <% end %>
-    <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-    Join!
-    <% end %>
-  <% end %>
-</div>
+        <% end %>
+        <!-- This button should only be present when there are dogs NOT in the group -->
+            <div>
+              <center>
+                <%= button_tag(type: "submit", class: "btn btn-info") do %>
+                  Join!
+                <% end %>
+              </center>
+            </div>
+        <% end %>
+
+        </div>
+        <div class="dogs_joined_outer">
+          <% @meetup_dogs.each do |d| %>
+          <div class="dogs_joined">
+            <% if d.image.blank? %>
+            <div><%= link_to image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle'), dog_path(d) %></div>
+            <% else %>
+            <div><%= link_to image_tag(d.image, :width => 150, :class => 'img-circle'), dog_path(d) %></div>
+            <% end %>
+            <div><%= link_to d.name.capitalize, dog_path(d) %></div>
+            <% if current_user.dogs.include?(d)  %>
+            <div><%= link_to "", "/meetups/" + @meetup.id.to_s + "/dog/" + d.id.to_s , method: :patch, :class =>  'fa fa-times fa-lg'%></div>
+            <% end %>
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
