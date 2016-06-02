@@ -1,22 +1,35 @@
-<strong>Name:</strong> <%= @meetup.name %><br>
-<strong>Location:</strong> <%= @meetup.location %><br>
-<strong>Address:</strong> <%= @meetup.address %><br>
-<strong>Meetup Date:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %><br>
-<strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %><br>
-<strong>Organized by:</strong> <%= @organizer.name %> <br>
-<strong>Description:</strong> <%= @meetup.description %>
+<div class="container">
+  <div class="col-md-8 col-md-offset-4">
+ <h1><%= @meetup.name %></h1>
+<p><strong>Where:</strong> <%= @meetup.location %><p>
+ <p><strong>Address:</strong> <%= @meetup.address %></p>
+<p><strong>When:</strong> <%= @meetup.meetup_date.strftime("%B %e, %Y") %></p>
+<p><strong>Time:</strong> <%= @meetup.time.strftime('%I:%M %p') %></p>
+<p><strong>Organized by:</strong> <%= @organizer.name %></p>
+<p><strong>More Info:</strong></p>
+<p><%= @meetup.description %></p>
 <% if current_user && current_user == @organizer %>
-  <%= button_to "Delete", @meetup, method: :delete %>
-  <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="pull-left">
+    <%= button_to "Delete", @meetup, method: :delete, :class => 'btn btn-warning' %>
+  </div>
+</div>
+<div class="col-sm-6">
+<div class="pull-left">
+    <%= button_to "Edit", edit_meetup_path(@meetup), method: 'get', :class => 'btn btn-warning' %>
+  </div>
+</div>
+</div>
 <% end %>
 
-<h2>Dogs belongs to meetup</h2>
+<h2>Come play with us!</h2>
   <% @meetup_dogs.each do |d| %>
     <strong>name:</strong> <%= link_to d.name, dog_path(d) %><br>
     <% if d.image.blank? %>
-      <%= link_to image_tag("dog_avatar.jpg", :width => 250), dog_path(d) %>
+      <%= link_to image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle'), dog_path(d) %>
     <% else %>
-      <%= link_to image_tag(d.image, :width => 250, :class => 'img-circle'), dog_path(d) %>
+      <%= link_to image_tag(d.image, :width => 150, :class => 'img-circle'), dog_path(d) %>
     <% end %>
     <br>
     <% if current_user.dogs.include?(d)  %>
@@ -34,3 +47,5 @@
       <% end %>
     <%= submit_tag "Add" %>
   <% end %>
+</div>
+</div>
