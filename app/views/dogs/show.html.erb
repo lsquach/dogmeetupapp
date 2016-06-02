@@ -1,15 +1,41 @@
+<div class="container">
+  <div class ="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-6 col-md">
+        <div>
+          <% if @dog.image.blank? %>
+          <div class="dog_show_pic">
 
-    <strong>Name:</strong> <%= @dog.name %><br>
-    <% if @dog.image.blank? %>
-    <%= image_tag "dog_avatar.jpg", :width => 250 %>
-  <% else %>
-    <%= image_tag @dog.image, :width => 250, :class => "img-circle" %>
-  <% end %>
-    <strong>Age:</strong> <%= @dog.age %><br>
-    <strong>Size:</strong> <%= @dog.size %><br>
-    <strong>Breed:</strong> <%= @dog.breed %> <br>
-    <strong>Bio:</strong> <%= @dog.bio %><br>
+            <div> <h2>Hi, I'm <%= @dog.name.capitalize %>!</h2></div>
+            <div><%= image_tag "dog_avatar.jpg", :width => 250, :class => 'img-circle' %></div>
+            </div>
 
-    <% @dog_meetups.each do |meetup| %>
-        <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h2>
-    <% end %>
+            <% else %>
+
+            <div class="dog_show_pic">
+            <div> <h2>Hi, I'm <%= @dog.name.capitalize %>!</h2></div>
+            <div><%= image_tag @dog.image, :width => 250, :class => "img-circle" %></div>
+          </div>
+          <% end %>
+          <ul class="dog_show_info">
+            <li><strong>Age:</strong> <%= @dog.age %> years old</li>
+            <li><strong>Size:</strong> <%= @dog.size %></li>
+            <li><strong>Breed:</strong> <%= @dog.breed %> </li>
+          </ul>
+          <h3><center>About Me:</center></h3>
+
+          <p><%= @dog.bio %></p>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-md events">
+        <h2><center>Upcoming Meetups</center></h2>
+        <% @dog_meetups.each do |meetup| %>
+        <h3><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h3>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

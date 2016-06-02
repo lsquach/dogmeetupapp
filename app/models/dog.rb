@@ -17,7 +17,7 @@ class Dog < ActiveRecord::Base
   }
   validates :bio, presence: true, length: {
     minimum: 1,
-    maximum: 250
+    maximum: 1000
   }
   validates :breed, presence: true, length: {
     minimum: 1,
