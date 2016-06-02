@@ -1,3 +1,29 @@
 // Place all the styles related to the meetups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  position: relative;
+  background: #000 url("dogs_playing.jpeg") center center;
+  // backgound-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: white;
+}
+
+.meetup {
+  background-color: #96cdcd;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px;
+}
+.meetup_info {
+  padding-top: 10px
+}
+.dog_pic{
+  padding: 10px
+}
+.dog_info {
+  display: inline-block;
+}
