@@ -1,22 +1,43 @@
-<h1>User Profile</h1>
-<h3>Name: <%= @user.name %></h3>
+<div class="container">
+<div class="row">
+<div class="col-sm-6"><h1 class="pull-right">Hi, <%= @user.name.capitalize %>!</h1></div>
 
-  <div>
-    <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: 'btn btn-warning' %>
+  <div class='col-sm-6'>
+    <%= link_to "", edit_user_path(@user), method: 'get', class: 'fa fa-pencil fa-2x user_update' %>
   </div>
+</div>
 
-<h2>Organized Meetups</h2>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
 
+<div class="col-sm-6">
+  <div class="row">
+<div class="col-sm-6"><h2 class="pull-right">Meetups</h2></div>
+<div class="col-sm-6">
+<%= link_to "", new_user_meetup_path(@user, @meetup), method: 'get', class: 'fa fa-plus fa-2x add' %>
+</div>
+</div>
 <% @meetups.each do |meetup| %>
-    <h2><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup) %></h2>
-      <%= link_to "", edit_meetup_path(meetup), class: 'glyphicon glyphicon-pencil' %>
+<ul>
+    <li><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup), class:"meetups_links" %></li>
+  </ul>
 <% end %>
-
-<%= button_to "Add Meetup", new_user_meetup_path(@user, @meetup), method: 'get', class: 'btn btn-warning' %>
-
-<h2>Dogs</h2>
+</div>
+<div class="col-sm-6">
+<div class="row">
+<div class="col-sm-6">
+<h2 class="pull-right">Pups</h2>
+</div>
+<div class="col-sm-6"><%= link_to "", new_user_dog_path(@user, @dog), method: 'get', class: 'fa fa-plus fa-2x add' %>
+</div>
+</div>
 <% @dogs.each do |dog| %>
-    <h2><%= link_to dog.name, dog_path(dog) %></h2>
-      <%= button_to "Edit Dog", edit_dog_path(dog), method: 'get', class: 'btn btn-warning' %>
+<div>
+    <center><div class="user_dog"><%= link_to image_tag(dog.image, :width => 150, :class => 'img-circle'), dog_path(dog) %></div>
+    <div><%= link_to "", edit_dog_path(dog), method: 'get', class: 'fa fa-pencil fa-lg' %><div></center>
+<div>
 <% end %>
-<%= button_to "Add Dog", new_user_dog_path(@user, @dog), method: 'get', class: 'btn btn-warning' %>
+</div>
+</div>
+</div>
+</div>
