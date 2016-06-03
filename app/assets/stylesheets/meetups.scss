@@ -4,12 +4,12 @@
 
 .jumbotron {
   position: relative;
-  background: #000 url("dogs_playing.jpeg") center center;
-  // backgound-size: cover;
+  background: #fffcf6 url("dogs_play.jpg") center center;
   width: 100%;
-  height: 100%;
+  height: 500px;
   overflow: hidden;
   color: white;
+  margin-bottom: 0px;
 }
 
 .meetup {
@@ -26,4 +26,11 @@
 }
 .dog_info {
   display: inline-block;
+}
+.header {
+  padding: 10px;
+}
+.call_to_action {
+  text-align: center;
+  font-size: 30px
 }

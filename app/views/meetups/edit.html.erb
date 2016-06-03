@@ -1,9 +1,28 @@
+<div class="container">
+  <h1><center>Add Meetup</center></h1>
 <%= form_for @meetup do |f| %>
-  Meetup Name: <%= f.text_field :name %><br>
-  Location: <%= f.text_field :location %><br>
-  Address: <%= f.text_area :address %><br>
-  Meetup Date: <%= f.date_field :meetup_date %><br>
-  Time: <%= f.time_field :time %><br>
-  Description: <%= f.text_area :description %><br>
-  <%= f.submit "Save" %>
+<div class="well col-md-4 col-md-offset-4">
+<div class="form-group">
+  Meetup Name: <%= f.text_field :name, class: 'form-control' %>
+</div>
+<div class="form-group">
+  Location: <%= f.text_field :location, class: 'form-control' %>
+</div>
+<div class="form-group">
+  Address: <%= f.text_area :address, class: 'form-control', rows: '3' %>
+</div>
+<div class="form-group">
+  Meetup Date: <%= f.date_field :meetup_date, class: 'form-control' %>
+</div>
+  <div class="form-group">
+  Time: <%= f.time_field :time, class: 'form-control' %>
+</div>
+<div class="form-group">
+  Description: <%= f.text_area :description , class: 'form-control', rows: '8'%>
+</div>
+<div>
+  <%= f.submit "Save", class: 'btn btn-info' %>
+</div>
 <% end %>
+</div>
+</div>
