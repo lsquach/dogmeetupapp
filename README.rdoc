@@ -1,28 +1,35 @@
-== README
+#Doggy Meetups
+* Description: Doggy Meetups is a way for users to look for Meetups for their pups to join and also create Meetups for other pups to join.
+* Link to app:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Existing Features
+* Users can create and update their profiles
+* Once logged in, they can visit individual city pages and see the posts other users have written
+* Users can create, update and delete their own posts
 
-Things you may want to cover:
+##Technologies Used
+* Ruby on Rails
+* HTML5
+* CSS
+* Postgresql DB
+* Twitter Bootstrap
+* Uploadcare
+* Bcrypt
+* Heroku
 
-* Ruby version
+##Planned Features
+* Add ability for users to add comments to Meetups
+* Allow users view other users profile pages
+* Add direct messaging between users
 
-* System dependencies
+## [ERD](https://goo.gl/Cw7Xf1)
 
-* Configuration
+## [User Stories](https://trello.com/b/iEsnr80O/project-3)
 
-* Database creation
+## [Wireframes] (https://dogmeetup.mybalsamiq.com/projects/dogmeetup/grid)
 
-* Database initialization
+## Installation Steps
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Clone repo
+2. Bundle install
+3. Rake db:migrate

@@ -8,11 +8,11 @@
 
             <div> <h2>Hi, I'm <%= @dog.name.capitalize %>!</h2></div>
             <div><%= image_tag "dog_avatar.jpg", :width => 250, :class => 'img-circle' %></div>
-            </div>
+          </div>
 
-            <% else %>
+          <% else %>
 
-            <div class="dog_show_pic">
+          <div class="dog_show_pic">
             <div> <h2>Hi, I'm <%= @dog.name.capitalize %>!</h2></div>
             <div><%= image_tag @dog.image, :width => 250, :class => "img-circle" %></div>
           </div>
