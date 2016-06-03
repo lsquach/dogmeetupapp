@@ -1,34 +1,34 @@
 <div class="container">
   <h1><center>Edit Pup</center></h1>
-<%= form_for @dog do |f| %>
-<div class="well col-md-4 col-md-offset-4">
-<div class="form-group">
-  Name: <%= f.text_field :name, class: "form-control" %>
-</div>
-<div> Avatar:
-  <input type="hidden" role="uploadcare-uploader" name="dog[image]"
-        value="<%= @dog.image %>"
-         data-crop="disabled"
-         data-images-only="true" />
-       </div>
-       <div class="form-group">
-  Age: <%= f.number_field :age, class: 'form-control' %>
-</div>
-<div class="form-group">
-  Size: <%= f.text_field :size, class: 'form-control' %><br>
-</div>
-<div class="form-group">
-  Breed: <%= f.text_field :breed, class: 'form-control' %>
-</div>
-<div class="form-group">
-  About Me: <%= f.text_area :bio, class: 'form-control', rows: '8' %>
-</div>
-<div>
-  <%= f.submit "Save", class: 'btn btn-info pull-left' %>
-</div>
-<% end %>
-<div>
-<%= button_to "Delete", @dog, method: :delete, class: 'btn btn-danger pull-right' %>
-</div>
-</div>
+  <%= form_for @dog do |f| %>
+  <div class="well col-md-4 col-md-offset-4">
+    <div class="form-group">
+      Name: <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div> Avatar:
+      <input type="hidden" role="uploadcare-uploader" name="dog[image]"
+      value="<%= @dog.image %>"
+      data-crop="disabled"
+      data-images-only="true" />
+    </div>
+    <div class="form-group">
+      Age: <%= f.number_field :age, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      Size: <%= f.text_field :size, class: 'form-control' %><br>
+    </div>
+    <div class="form-group">
+      Breed: <%= f.text_field :breed, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      About Me: <%= f.text_area :bio, class: 'form-control', rows: '8' %>
+    </div>
+    <div>
+      <%= f.submit "Save", class: 'btn btn-info pull-left' %>
+    </div>
+    <% end %>
+    <div>
+      <%= button_to "Delete", @dog, method: :delete, class: 'btn btn-danger pull-right' %>
+    </div>
+  </div>
 </div>
