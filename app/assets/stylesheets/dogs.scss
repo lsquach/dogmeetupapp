@@ -1,3 +1,38 @@
 // Place all the styles related to the dogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.meetup_inner {
+  margin: 0 auto;
+  width: 300px;
+  font-size: 18px
+}
+ul {
+  list-style-type: none;
+}
+.dog_add {
+  text-align: center;
+}
+.dog_outer {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+}
+.dogs_joined {
+  text-align: center;
+  display: inline-block;
+  width: 25%
+}
+.dogs_joined_outer {
+  text-align: center
+}
+.meetup_show {
+  margin-bottom: 5%
+}
+.meetup_description {
+  width: 100%;
+  font-size: 18px
+}
+.meetup_title {
+  font-size: 50px
+}

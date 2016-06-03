@@ -22,25 +22,9 @@ body {
 .navbar {
   background-color: #778899;
 }
-
-.font_style {
+#font_style_home {
   color: white;
 }
-
-.font_style_home {
-  color: white;
-}
-.font_style:hover{
-    background-color: transparent;
-    text-decoration: none;
-}
-
-.font_style_home:hover{
-    background-color: transparent;
-    color: white;
-    text-decoration: none;
-}
-
-.hamburger {
+.navbar-toggle {
   background-color: white;
 }
