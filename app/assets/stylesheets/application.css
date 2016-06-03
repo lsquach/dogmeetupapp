@@ -10,7 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap-3.3.6.min
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #fffcf6;
+  font-family: 'Quattrocento Sans', sans-serif;
+  padding-top: 50px;
+}
+.navbar {
+  background-color: #778899;
+}
+#font_style_home {
+  color: white;
+}
+.navbar-toggle {
+  background-color: white;
+}

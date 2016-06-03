@@ -1,0 +1,50 @@
+<div class="jumbotron">
+  <div class="header">
+    <h1 class="display-3">Welcome to Doggy Meetups!</h1>
+    <p class="lead hero-header">Does your dog need exercise? Need to socialize your puppy? Want to throw your pup a birthday party but he doesn't have enough pup friends? Doggy Meetups is here for you! Check out upcoming meetups.</p>
+    <% if current_user %>
+    <% else %>
+      <div class="call_to_action"> To join or set up a meetup <%= link_to "Sign Up Now!", signup_path, class: 'btn btn-primary'%></div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+      <div class="col-md-8 col-md-offset-2"> <!-- outside column -->
+        <h1><center>Upcoming Meetups</center></h1>
+<% @meetups.each do |meetup| %>
+<div class="meetup">
+  <div class="meetup_info">
+    <% if current_user %>
+    <h2><%= link_to meetup.name, meetup_path(meetup) %></h2>
+    <% else %>
+    <h2><%= meetup.name %></h2>
+    <% end %>
+    <strong>When:</strong> <%= meetup.meetup_date.strftime("%B %e, %Y") %><br>
+    <strong>Where:</strong> <%= meetup.location %>
+  </div>
+  <h3>Come play with us!</h3>
+    <% if current_user %>
+    <% meetup.dogs.first(10).each do |d| %>
+    <% if d.image.blank? %>
+      <%= link_to image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle dog_pic'), dog_path(d) %>
+    <% else %>
+      <%= link_to image_tag(d.image, :width => 150, :class => 'img-circle dog_pic'), dog_path(d) %>
+<% end %>
+<% end %>
+
+
+    <% else %>
+    <% meetup.dogs.first(10).each do |d| %>
+    <% if d.image.blank? %>
+      <%= image_tag("dog_avatar.jpg", :width => 150, :class => 'img-circle dog_pic') %>
+    <% else %>
+      <%= image_tag(d.image, :width => 150, :class => 'img-circle dog_pic') %>
+    <% end %>
+    <% end %>
+    <% end %>
+</div>
+<% end %>
+
+
+</div>
+</div>

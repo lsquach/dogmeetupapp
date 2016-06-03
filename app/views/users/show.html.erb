@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+<div class="col-sm-6"><h1 class="pull-right">Hi, <%= @user.name.capitalize %>!</h1></div>
+
+  <div class='col-sm-6'>
+    <%= link_to "", edit_user_path(@user), method: 'get', class: 'fa fa-pencil fa-2x user_update' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
+
+<div class="col-sm-6">
+  <div class="row">
+<div class="col-sm-6"><h2 class="pull-right">Meetups</h2></div>
+<div class="col-sm-6">
+<%= link_to "", new_user_meetup_path(@user, @meetup), method: 'get', class: 'fa fa-plus fa-2x add' %>
+</div>
+</div>
+<% @meetups.each do |meetup| %>
+<ul>
+    <li><%= link_to "#{meetup.name} - #{meetup.meetup_date.strftime("%B %e, %Y")}", meetup_path(meetup), class:"meetups_links" %></li>
+  </ul>
+<% end %>
+</div>
+<div class="col-sm-6">
+<div class="row">
+<div class="col-sm-6">
+<h2 class="pull-right">Pups</h2>
+</div>
+<div class="col-sm-6"><%= link_to "", new_user_dog_path(@user, @dog), method: 'get', class: 'fa fa-plus fa-2x add' %>
+</div>
+</div>
+<% @dogs.each do |dog| %>
+<div>
+    <center><div class="user_dog"><%= link_to image_tag(dog.image, :width => 150, :class => 'img-circle'), dog_path(dog) %></div>
+    <div><%= link_to "", edit_dog_path(dog), method: 'get', class: 'fa fa-pencil fa-lg' %><div></center>
+<div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
