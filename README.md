@@ -3,9 +3,9 @@
 * Link to app:
 
 ##Existing Features
-* Users can create and update their profiles
-* Once logged in, they can visit individual city pages and see the posts other users have written
-* Users can create, update and delete their own posts
+* Public users can see Meetups on home page but cannot access Meetup show, dog show or create Meetups unless logged in
+* Logged in users can add their dogs to their profile and add their dogs to Meetups
+* Logged in users can create Meetups
 
 ##Technologies Used
 * Ruby on Rails
