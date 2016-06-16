@@ -1,0 +1,157 @@
+/* line 6, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dog_meetups.scss */
+.dog_show_pic {
+  text-align: center;
+}
+
+/* line 9, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dog_meetups.scss */
+.dog_show_info {
+  margin-left: 20%;
+  font-size: 18px;
+}
+/* line 5, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.meetup_inner {
+  margin: 0 auto;
+  width: 300px;
+  font-size: 18px;
+}
+
+/* line 10, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 13, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.dog_add {
+  text-align: center;
+}
+
+/* line 16, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.dog_outer {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+}
+
+/* line 21, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.dogs_joined {
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+}
+
+/* line 26, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.dogs_joined_outer {
+  text-align: center;
+}
+
+/* line 29, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.meetup_show {
+  margin-bottom: 5%;
+}
+
+/* line 32, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.meetup_description {
+  width: 100%;
+  font-size: 18px;
+}
+
+/* line 36, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/dogs.scss */
+.meetup_title {
+  font-size: 50px;
+}
+/* line 5, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.jumbotron {
+  position: relative;
+  background: #fffcf6 url("dogs_play.jpg") center center;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  color: white;
+  margin-bottom: 0px;
+}
+
+/* line 15, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.meetup {
+  background-color: #96cdcd;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px;
+}
+
+/* line 21, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.meetup_info {
+  padding-top: 10px;
+}
+
+/* line 24, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.dog_pic {
+  padding: 10px;
+}
+
+/* line 27, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.dog_info {
+  display: inline-block;
+}
+
+/* line 30, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.header {
+  padding: 10px;
+}
+
+/* line 33, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/meetups.scss */
+.call_to_action {
+  text-align: center;
+  font-size: 30px;
+}
+/* line 4, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/users.scss */
+.user_update {
+  margin-top: 4%;
+  margin-left: -3%;
+}
+
+/* line 9, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/users.scss */
+.add {
+  margin-top: 10%;
+  margin-left: -10%;
+}
+
+/* line 13, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/users.scss */
+.meetups_links {
+  font-size: 25px;
+}
+
+/* line 16, /Users/Lotus/wdi/dogmeet_app/app/assets/stylesheets/users.scss */
+.user_dog {
+  padding: 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+body {
+  background-color: #fffcf6;
+  font-family: 'Quattrocento Sans', sans-serif;
+  padding-top: 50px;
+}
+.navbar {
+  background-color: #778899;
+}
+#font_style_home {
+  color: white;
+}
+.navbar-toggle {
+  background-color: white;
+}
