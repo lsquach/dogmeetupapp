@@ -1,6 +1,6 @@
 #Doggy Meetups
 * Description: Doggy Meetups is a way for users to look for Meetups for their pups to join and also create Meetups for other pups to join.
-* Link to app:
+* Link to app: https://doggymeetup.herokuapp.com/
 
 ##Existing Features
 * Public users can see Meetups on home page but cannot access Meetup show, dog show or create Meetups unless logged in
